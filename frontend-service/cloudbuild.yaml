@@ -1,20 +1,20 @@
 steps:
   - id : 'Build Image' 
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us.gcr.io/fair-portal-451506-u2/react-app','.']
+    args: ['build', '-t', 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA','.']
     dir: 'frontend-service'
   - id : 'Push Image' 
     name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app']
-  - id : 'Deploy Image'
+    args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA']
+  - id : 'Set and Deploy Image' 
     name: 'gcr.io/cloud-builders/kubectl'
-    args: ['apply', '-f', 'deployment.yaml']
+    args: ['set', 'image', 'deployment/react-app', 'react-app=us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA']
     dir: 'frontend-service'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1'
 images:
-  - 'us.gcr.io/fair-portal-451506-u2/react-app'
+  - 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA'
 options:
   logging: CLOUD_LOGGING_ONLY
   substitutionOption: ALLOW_LOOSE
