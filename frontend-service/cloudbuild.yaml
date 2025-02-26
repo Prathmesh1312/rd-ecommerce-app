@@ -1,10 +1,8 @@
 steps:
-  - id : 'Change Directory'
-    name: 'gcr.io/cloud-builders/docker' 
-    args: ['cd frontend-service']
   - id : 'Build Image' 
     name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'us.gcr.io/fair-portal-451506-u2/react-app:v2','.']
+    dir: 'frontend-service'
   - id : 'Push Image' 
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app:v2']
