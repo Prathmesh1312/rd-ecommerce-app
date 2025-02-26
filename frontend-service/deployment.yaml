@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: us.gcr.io/fair-portal-451506-u2/react-app:v1
+        image: us.gcr.io/fair-portal-451506-u2/react-app::$SHORT_SHA
         ports:
         - containerPort: 3000
 ---
