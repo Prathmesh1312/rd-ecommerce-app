@@ -6,13 +6,6 @@ steps:
   - id : 'Push Image' 
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA']
-  - id : 'Set Image' 
-    name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployment/react-app', 'react-app=us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA']
-    dir: 'frontend-service'
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1'
   - id : 'Deploy Image'
     name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'deployment.yaml']
