@@ -1,0 +1,13 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: react-app-pipeline
+spec:
+  serialPipeline:
+    stages:
+      - targetId: react-app-target
+        profiles:
+          - deploy:
+              kubernetes:
+                cluster: cluster-1
+                namespace: default
