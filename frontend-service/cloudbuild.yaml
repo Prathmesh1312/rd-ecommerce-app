@@ -1,9 +1,12 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - id : 'Build Image' 
+    name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/fair-portal-451506-u2/react-app']
-  - name: 'gcr.io/cloud-builders/docker'
+  - id : 'Push Image' 
+    name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/fair-portal-451506-u2/react-app']
-  - name: 'gcr.io/cloud-builders/kubectl'
+  - id : 'Deploy Image' 
+    name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'deployment.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'

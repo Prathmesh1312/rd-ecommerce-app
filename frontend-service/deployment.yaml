@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: gcr.io/[PROJECT-ID]/react-app
+        image: gcr.io/fair-portal-451506-u2/react-app
         ports:
         - containerPort: 3000
