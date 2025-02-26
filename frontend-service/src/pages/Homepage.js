@@ -21,7 +21,7 @@ const HomePage = () => {
           RD Ecommerce App Rajesh Dileep Daundkar
         </Typography>
         <Typography variant="h6" component="h2" gutterBottom color="text.secondary">
-          Your one-stop solution for everything.
+          Your one-stop solution for everything - You liked it.
         </Typography>
         <Button variant="contained" color="primary" href="/login">
           Login
