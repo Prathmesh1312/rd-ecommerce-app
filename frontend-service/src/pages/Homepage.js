@@ -18,7 +18,7 @@ const HomePage = () => {
       <Tabs />
       <Box sx={{ marginTop: 8, marginBottom: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography variant="h3" component="h1" gutterBottom>
-          RD Ecommerce App Rajesh Daundkar
+          RD Ecommerce App Rajesh D Daundkar
         </Typography>
         <Typography variant="h6" component="h2" gutterBottom color="text.secondary">
           Your one-stop solution for everything.
