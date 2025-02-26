@@ -1,11 +1,11 @@
 steps:
   - id : 'Build Image' 
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us.gcr.io/fair-portal-451506-u2/react-app:v3','.']
+    args: ['build', '-t', 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA','.']
     dir: 'frontend-service'
   - id : 'Push Image' 
     name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app:v3']
+    args: ['push', 'us.gcr.io/fair-portal-451506-u2/react-app:$SHORT_SHA']
   - id : 'Deploy Image' 
     name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'deployment.yaml']
