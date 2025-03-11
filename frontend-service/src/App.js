@@ -1,4 +1,5 @@
 import './App.css';
+import ProductCategoryPage from './pages/Category';
 import HomePage from './pages/Homepage';
 import LoginPage from './pages/Login';
 import SignUpPage from './pages/SignUp';
@@ -11,7 +12,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/Login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
-      {/* ... other routes */}
+      <Route path="/c/:categoryName" element={<ProductCategoryPage />} />
     </Routes>
   </Router>
   );

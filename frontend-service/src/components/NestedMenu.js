@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, MenuItem, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const NestedMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,9 +64,9 @@ const NestedMenu = () => {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         >
-          <MenuItem>T-Shirts</MenuItem>
-          <MenuItem>Casual Shirts</MenuItem>
-          <MenuItem>Shorts</MenuItem>
+          <MenuItem><Button component={Link} to='/c/Men T-shirts'>T-Shirts</Button></MenuItem>
+          <MenuItem><Button href='/c/Men Casual Shirts'>Men Casual Shirts</Button></MenuItem>
+          <MenuItem><Button href='/c/Men Shorts'>Shorts</Button></MenuItem>
         </Menu>
         <MenuItem onClick={(e) => handleSubMenuClick(e, 'men-accessories')}>Accessories</MenuItem>
         <Menu
@@ -77,8 +78,8 @@ const NestedMenu = () => {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         >
-          <MenuItem>Watches</MenuItem>
-          <MenuItem>Sunglasses</MenuItem>
+          <MenuItem><Button href='/c/Men Watches'>Watches</Button></MenuItem>
+          <MenuItem><Button href='/c/Men Sunglasses'>Sunglasses</Button></MenuItem>
         </Menu>
       </Menu>
 
@@ -101,9 +102,9 @@ const NestedMenu = () => {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         >
-          <MenuItem>Kurtas & Suits</MenuItem>
-          <MenuItem>Skirts & Palazzos</MenuItem>
-          <MenuItem>Dress Material</MenuItem>
+          <MenuItem><Button href='/c/Women Kurtas & Suits'>Kurtas & Suits</Button></MenuItem>
+          <MenuItem><Button href='/c/Women Skirts & Palazzos'>Skirts & Palazzos</Button></MenuItem>
+          <MenuItem><Button href='/c/Women Dress Material'>Dress Material</Button></MenuItem>
         </Menu>
         <MenuItem onClick={(e) => handleSubMenuClick(e, 'women-western')}>Western Wear</MenuItem>
         <Menu
@@ -115,8 +116,8 @@ const NestedMenu = () => {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         >
-          <MenuItem>Jeans & Jeggings</MenuItem>
-          <MenuItem>Coats and Blazers</MenuItem>
+          <MenuItem><Button href='/c/Women Jeans & Jeggings'>Jeans & Jeggings</Button></MenuItem>
+          <MenuItem><Button href='/c/Women Coats and Blazers'>Coats and Blazers</Button></MenuItem>
         </Menu>
         <MenuItem onClick={(e) => handleSubMenuClick(e, 'women-accessories')}>Accessories</MenuItem>
         <Menu
@@ -128,8 +129,8 @@ const NestedMenu = () => {
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         >
-          <MenuItem href='/c/watches'>Watches</MenuItem>
-          <MenuItem>Sunglasses</MenuItem>
+          <MenuItem><Button href='/c/w_watches'>Watches</Button></MenuItem>
+          <MenuItem><Button href='/c/w_unglasses'>Sunglasses</Button></MenuItem>
         </Menu>
       </Menu>
     </Box>
