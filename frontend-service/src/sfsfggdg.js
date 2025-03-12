@@ -19,7 +19,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/signin', {
+      const response = await axios.post('http://localhost:3000/api/auth/signin', {
         username,
         password,
       });
@@ -38,7 +38,7 @@ function App() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post('http://localhost:8080/api/auth/signup', {
+        const response = await axios.post('http://localhost:3000/api/auth/signup', {
             username,
             password,
         });

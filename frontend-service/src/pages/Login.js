@@ -4,12 +4,14 @@ import { Container, Typography, TextField, Button, Box, Alert } from '@mui/mater
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import SimpleAlert from '../components/alert';
 import config from '../config';
+import Navbar from '../components/Navbar';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); // State for error messages
   const navigate = useNavigate(); // Initialize useNavigate
+  const [isUserLogedIn, setIsUserLogedIn] = React.useState(false);
 
   async function login(event) {
     event.preventDefault();
@@ -27,6 +29,8 @@ const LoginPage = () => {
          else if(res.data.message == "User Logged in!")
          { 
             <SimpleAlert />
+            setIsUserLogedIn(true);
+            <Navbar isUserLogedIn={isUserLogedIn} />
             navigate('/');
          } 
           else 
