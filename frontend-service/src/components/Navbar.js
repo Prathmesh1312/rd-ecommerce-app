@@ -30,7 +30,7 @@ const LoginButton = styled(Button)({
   gap:"10px"
 });
 
-const Navbar = () => {
+const Navbar = ({isUserLogedIn}) => {
   return (
     <AppBar position="static" color='default' margin='auto'> 
       <Toolbar>
@@ -43,10 +43,15 @@ const Navbar = () => {
           <NestedMenu label="Products" />
        </NavTabs>
         <SearchBar/>
-        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
-        ><LoginIcon />Login</LoginButton>
-        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
-        ><LogoutIcon />Logout</LoginButton>
+        { !isUserLogedIn ? 
+        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}>
+          <LoginIcon />Login
+        </LoginButton>
+        : 
+        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}>
+          <LogoutIcon />Logout
+        </LoginButton>
+        }
         <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
         ><ShoppingCartCheckoutIcon />Cart</LoginButton>
       </Toolbar>

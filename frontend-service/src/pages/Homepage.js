@@ -8,6 +8,7 @@ import Testimonials from '../components/Testimonials.js';
 import Footer from '../components/Footer.js';
 import Navbar from '../components/Navbar.js';
 
+
 const App = () => {
   return (
     <div className="App">

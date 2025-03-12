@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import config from '../config';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 const ButtonBar = styled(Box)({
@@ -58,7 +59,6 @@ function ProductCategoryPage() {
     }
   }, [categoryName, setProducts]);
 
-  // ... rest of your component code
   return (
     <div>
       <Navbar />
@@ -95,6 +95,7 @@ function ProductCategoryPage() {
           </Grid2>
         ))}
       </Grid2>
+      <Footer />
     </div>
   );
 }
