@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography, Button, IconButton, Box } from '@mui/material';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { Grid2, Card, CardContent, CardMedia, Typography, Button, IconButton, Box } from '@mui/material';
+import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import CompareIcon from '@mui/icons-material/Compare';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -17,11 +17,12 @@ const ButtonBar = styled(Box)({
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundColor: 'rgba(99, 99, 99, 0.7)',
   display: 'flex',
   justifyContent: 'space-around',
   padding: '10px',
   opacity: 0,
+  height: '76px',
   transition: 'opacity 0.3s',
 });
 
@@ -31,8 +32,12 @@ const ProductCard = styled(Card)({
     '& .button-bar': {
       opacity: 1,
     },
+    '& .cardcontent': {
+      color: 'white',
+    },
   },
 });
+
 
 function ProductCategoryPage() {
 
@@ -58,37 +63,38 @@ function ProductCategoryPage() {
     <div>
       <Navbar />
       <Typography variant="h4" gutterBottom> { categoryName }  Category</Typography>
-      <Grid container spacing={2}>
+      <Grid2 container spacing={6}>
         {products.map(product => (
-          <Grid item xs={12} sm={6} md={4} key={product.id}>
+          <Grid2 item xs={12} sm={6} md={3} key={product.id}>
             <ProductCard>
               <CardMedia
                 component="img"
-                height="150"
+                height="400"
                 image={`${config.SERVER_IMAGE_URL}${product.image}`}
                 alt={product.name}
               />
-              <CardContent>
-                <Typography variant="h6">{product.name}</Typography>
-                <Typography variant="body2">Price: ${product.price}</Typography>
-              </CardContent>
+              <CardContent >
+                <Typography className="cardcontent" variant="h5">{product.name}</Typography>
+                <Typography className="cardcontent" variant="body1">Price: ${product.price}</Typography>
               <ButtonBar className="button-bar">
-                <Button variant="contained" color="primary" startIcon={<AddShoppingCartIcon />}>
+                <Button color="primary" fontSize='large' >
+                <ShoppingCart fontSize='large'/>
                 </Button>
                 <IconButton color="primary">
-                  <CompareIcon />
+                  <CompareIcon fontSize='large'/>
+                </IconButton>
+                <IconButton color="primary">
+                  <VisibilityIcon  color='red' fontSize='large'/>
                 </IconButton>
                 <IconButton color="secondary">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton color="default">
-                  <VisibilityIcon />
+                  <FavoriteIcon color='error'fontSize='large'/>
                 </IconButton>
               </ButtonBar>
+              </CardContent>
             </ProductCard>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </div>
   );
 }

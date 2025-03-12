@@ -1,0 +1,20 @@
+.hero-banner {
+    background-image: url('https://cdn.prod.website-files.com/605826c62e8de87de744596e/63f5e30a4d577354fdfce512_Duotone-Master-ssssFile-copy.jpg'); 
+    background-size:auto;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-banner .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 300px;
+  }
+  
+  .shop-now-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+  }
+  

@@ -1,14 +1,23 @@
 import React from 'react';
-import SimpleAlert from '../components/alert';
-import NavBar from '../components/Navbar';
+import '../../src/App.css'
 
-const HomePage = () => {
+// Components
+import HeroBanner from '../components/Herobanner.js';
+import NewProducts from '../components/NewProducts.js';
+import Testimonials from '../components/Testimonials.js';
+import Footer from '../components/Footer.js';
+import Navbar from '../components/Navbar.js';
+
+const App = () => {
   return (
-    <div>
-      <NavBar />
-      <SimpleAlert  />
+    <div className="App">
+      <Navbar />
+      <HeroBanner />
+      <NewProducts />
+      <Testimonials />
+      <Footer />
     </div>
   );
 };
 
-export default HomePage;
+export default App;

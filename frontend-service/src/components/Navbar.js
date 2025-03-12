@@ -7,11 +7,16 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
 import NestedMenu from './NestedMenu';
 import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
 
 const Logo = styled('div')({
   width: '15%',
   display: 'flex',
   alignItems: 'center',
+  margin:'5px'
 });
 
 const NavTabs = styled(Tabs)({
@@ -21,21 +26,29 @@ const NavTabs = styled(Tabs)({
 
 const LoginButton = styled(Button)({
   width: '10%',
+  margin:'10px',
+  gap:"10px"
 });
 
 const Navbar = () => {
   return (
     <AppBar position="static" color='default' margin='auto'> 
       <Toolbar>
-        <Logo>
+        <Logo >
+          <Link to='/'>
           <img src={logo} alt="Amcart Ecommerce Logo" href='/' />
+          </Link>
         </Logo>
         <NavTabs>
           <NestedMenu label="Products" />
        </NavTabs>
-        <SearchBar placeholder="Search..." />
-        <LoginButton color="inherit" href='/login' type="submit" variant="contained" color="primary" sx={{ padding: '18px' }}
-        >Login</LoginButton>
+        <SearchBar/>
+        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
+        ><LoginIcon />Login</LoginButton>
+        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
+        ><LogoutIcon />Logout</LoginButton>
+        <LoginButton color="primary" href='/login' type="submit" variant="contained" sx={{ padding: '18px' }}
+        ><ShoppingCartCheckoutIcon />Cart</LoginButton>
       </Toolbar>
     </AppBar>
   );

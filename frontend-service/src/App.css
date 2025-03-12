@@ -1,0 +1,105 @@
+.App {
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero-banner {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .shop-now-btn {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .new-products {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .new-products h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .products-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .testimonials {
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .reviews-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 300px;
+  }
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-content ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  .footer-content ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  

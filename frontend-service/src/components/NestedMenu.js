@@ -38,11 +38,11 @@ const NestedMenu = () => {
   };
 
   return (
-    <Box display="flex" justifyContent="center" marginTop={2}>
-      <Button aria-controls="men-menu" aria-haspopup="true" onClick={(e) => handleClick(e, 'men')} sx={{ paddingLeft: '25px', paddingRight: '50px' }}>
+    <Box display="flex" justifyContent="center" >
+      <Button aria-controls="men-menu" variant='outlined' aria-haspopup="true" onClick={(e) => handleClick(e, 'men')} sx={{ margin: '0 10px', fontSize: '1.5em' }}>
         Men
       </Button>
-      <Button aria-controls="women-menu" aria-haspopup="true" onClick={(e) => handleClick(e, 'women')} sx={{ paddingLeft: '50x', paddingRight: '25px' }}>
+      <Button aria-controls="women-menu"  variant='outlined' aria-haspopup="true" onClick={(e) => handleClick(e, 'women')} sx={{ margin: '0 10px',fontSize: '1.5em' }}>
         Women
       </Button>
       <Menu
