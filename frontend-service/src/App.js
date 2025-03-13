@@ -7,6 +7,7 @@ import Searchresult from './components/Searchresult';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
 import ProductDetails from './pages/ProductDetails';
 
+
 function App() {
   return (
     <Router>

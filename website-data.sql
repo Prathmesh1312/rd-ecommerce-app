@@ -10,7 +10,8 @@ INSERT INTO category (name) VALUES
 ('Women Jeans & Jeggings'),
 ('Women Coats and Blazers'),
 ('Women Watches'),
-('Women Sunglasses');
+('Women Sunglasses'),
+('New Arrivals');
 
 
 -- Insert Products
@@ -73,5 +74,132 @@ INSERT INTO product_category (product_id, category_id) VALUES
 (24, 12);
 
 -- Insert SKUs
-INSERT INTO sku (product_id, id, quantity, size, color) VALUES
+I1SERT INTO sku (product_id, code, quantity, size, color, image) VALUES
+(1, 'T-BLK-S', 10, 'S', 'Black', 't_black.jpg'),
+(1, 'T-BLK-M', 10, 'M', 'Black', 't_black.jpg'),
+(1, 'T-BLK-L', 10, 'L', 'Black', 't_black.jpg'),
+(1, 'T-BLK-XL', 10, 'XL', 'Black', 't_black.jpg'),
+(1, 'T-BLK-XXL', 10, 'XXL', 'Black', 't_black.jpg'),
+(1, 'T-PUR-S', 10, 'S', 'Purple', 't_purple.jpg'),
+(1, 'T-PUR-M', 10, 'M', 'Purple', 't_purple.jpg'),
+(1, 'T-PUR-L', 10, 'L', 'Purple', 't_purple.jpg'),
+(1, 'T-PUR-XL', 10, 'XL', 'Purple', 't_purple.jpg'),
+(1, 'T-PUR-XXL', 10, 'XXL', 'Purple', 't_purple.jpg'),
+(1, 'T-YEL-S', 10, 'S', 'Yellow', 't_yellow.jpg'),
+(1, 'T-YEL-M', 10, 'M', 'Yellow', 't_yellow.jpg'),
+(1, 'T-YEL-L', 10, 'L', 'Yellow', 't_yellow.jpg'),
+(1, 'T-YEL-XL', 10, 'XL', 'Yellow', 't_yellow.jpg'),
+(1, 'T-YEL-XXL', 10, 'XXL', 'Yellow', 't_yellow.jpg'),
+(1, 'T-BLU-S', 10, 'S', 'Blue', 't_blue.jpg'),
+(1, 'T-BLU-M', 10, 'M', 'Blue', 't_blue.jpg'),
+(1, 'T-BLU-L', 10, 'L', 'Blue', 't_blue.jpg'),
+(1, 'T-BLU-XL', 10, 'XL', 'Blue', 't_blue.jpg'),
+(1, 'T-BLU-XXL', 10, 'XXL', 'Blue', 't_blue.jpg'),
+(1, 'T-WHT-S', 10, 'S ', 'White', 't_white.jpg'),
+(1, 'T-WHT-M', 10, 'M', 'White', 't_white.jpg'),
+(1, 'T-WHT-L', 10, 'L', 'White', 't_white.jpg'),
+(1, 'T-WHT-XL', 10, 'XL', 'White', 't_white.jpg'),
+(1, 'T-WHT-XXL', 10, 'XXL', 'White', 't_white.jpg'),
+(1, 'T-RED-S', 10, 'S', 'Red', 't_red.jpg'),
+(1, 'T-RED-M', 10, 'M', 'Red', 't_red.jpg'),
+(1, 'T-RED-L', 10, 'L', 'Red', 't_red.jpg'),
+(1, 'T-RED-XL', 10, 'XL', 'Red', 't_red.jpg'),
+(1, 'T-RED-XXL', 10, 'XXL', 'Red', 't_red.jpg'),
+(1, 'T-GRN-S', 10, 'S', 'Green', 't_green.jpg'),
+(1, 'T-GRN-M', 10, 'M', 'Green', 't_green.jpg'),
+(1, 'T-GRN-L', 10, 'L', 'Green', 't_green.jpg'),
+(1, 'T-GRN-XL', 10, 'XL', 'Green', 't_green.jpg'),
+(1, 'T-GRN-XXL', 10, 'XXL', 'Green', 't_green.jpg'),
+(8, 'K-BLK-S', 10, 'S', 'Black', 'k_black.jpg'),
+(8, 'K-BLK-M', 10, 'M', 'Black', 'k_black.jpg'),
+(8, 'K-BLK-L', 10, 'L', 'Black', 'k_black.jpg'),
+(8, 'K-BLK-XL', 10, 'XL', 'Black', 'k_black.jpg'),
+(8, 'K-BLK-XXL', 10, 'XXL', 'Black', 'k_black.jpg'),
+
+(9, 'K-PUR-S', 10, 'S', 'Purple', 'k_purple.jpg'),
+(9, 'K-PUR-M', 10, 'M', 'Purple', 'k_purple.jpg'),
+(9, 'K-PUR-L', 10, 'L', 'Purple', 'k_purple.jpg'),
+(9, 'K-PUR-XL', 10, 'XL', 'Purple', 'k_purple.jpg'),
+(9, 'K-PUR-XXL', 10, 'XXL', 'Purple', 'k_purple.jpg'),
+
+(10, 'K-YEL-S', 10, 'S', 'Yellow', 'k_yellow.jpg'),
+(10, 'K-YEL-M', 10, 'M', 'Yellow', 'k_yellow.jpg'),
+(10, 'K-YEL-L', 10, 'L', 'Yellow', 'k_yellow.jpg'),
+(10, 'K-YEL-XL', 10, 'XL', 'Yellow', 'k_yellow.jpg'),
+(10, 'K-YEL-XXL', 10, 'XXL', 'Yellow', 'k_yellow.jpg'),
+
+(11, 'K-BLU-S', 10, 'S', 'Blue', 'k_blue.jpg'),
+(11, 'K-BLU-M', 10, 'M', 'Blue', 'k_blue.jpg'),
+(11, 'K-BLU-L', 10, 'L', 'Blue', 'k_blue.jpg'),
+(11, 'K-BLU-XL', 10, 'XL', 'Blue', 'k_blue.jpg'),
+(11, 'K-BLU-XXL', 10, 'XXL', 'Blue', 'k_blue.jpg'),
+
+(12, 'K-WHT-S', 10, 'S', 'White', 'k_white.jpg'),
+(12, 'K-WHT-M', 10, 'M', 'White', 'k_white.jpg'),
+(12, 'K-WHT-L', 10, 'L', 'White', 'k_white.jpg'),
+(12, 'K-WHT-XL', 10, 'XL', 'White', 'k_white.jpg'),
+(12, 'K-WHT-XXL', 10, 'XXL', 'White', 'k_white.jpg'),
+
+(13, 'K-RED-S', 10, 'S', 'Red', 'k_red.jpg'),
+(13, 'K-RED-M', 10, 'M', 'Red', 'k_red.jpg'),
+(13, 'K-RED-L', 10, 'L', 'Red', 'k_red.jpg'),
+(13, 'K-RED-XL', 10, 'XL', 'Red', 'k_red.jpg'),
+(13, 'K-RED-XXL', 10, 'XXL', 'Red', 'k_red.jpg'),
+
+(14, 'K-GRN-S', 10, 'S', 'Green', 'k_green.jpg'),
+(14, 'K-GRN-M', 10, 'M', 'Green', 'k_green.jpg'),
+(14, 'K-GRN-L', 10, 'L', 'Green', 'k_green.jpg'),
+(14, 'K-GRN-XL', 10, 'XL', 'Green', 'k_green.jpg'),
+(14, 'K-GRN-XXL', 10, 'XXL', 'Green', 'k_green.jpg'),
+
+(15, 'S-BLK-S', 10, 'S', 'Black', 's_black.jpg'),
+(15, 'S-BLK-M', 10, 'M', 'Black', 's_black.jpg'),
+(15, 'S-BLK-L', 10, 'L', 'Black', 's_black.jpg'),
+(15, 'S-BLK-XL', 10, 'XL', 'Black', 's_black.jpg'),
+(15, 'S-BLK-XXL', 10, 'XXL', 'Black', 's_black.jpg'),
+
+(16, 'S-PUR-S', 10, 'S', 'Purple', 's_purple.jpg'),
+(16, 'S-PUR-M', 10, 'M', 'Purple', 's_purple.jpg'),
+(16, 'S-PUR-L', 10, 'L', 'Purple', 's_purple.jpg'),
+(16, 'S-PUR-XL', 10, 'XL', 'Purple', 's_purple.jpg'),
+(16, 'S-PUR-XXL', 10, 'XXL', 'Purple', 's_purple.jpg'),
+
+(17, 'S-YEL-S', 10, 'S', 'Yellow', 's_yellow.jpg'),
+(17, 'S-YEL-M', 10, 'M', 'Yellow', 's_yellow.jpg'),
+(17, 'S-YEL-L', 10, 'L', 'Yellow', 's_yellow.jpg'),
+(17, 'S-YEL-XL', 10, 'XL', 'Yellow', 's_yellow.jpg'),
+(17, 'S-YEL-XXL', 10, 'XXL', 'Yellow', 's_yellow.jpg'),
+
+(18, 'S-BLU-S', 10, 'S', 'Blue', 's_blue.jpg'),
+(18, 'S-BLU-M', 10, 'M', 'Blue', 's_blue.jpg'),
+(18, 'S-BLU-L', 10, 'L', 'Blue', 's_blue.jpg'),
+(18, 'S-BLU-XL', 10, 'XL', 'Blue', 's_blue.jpg'),
+(18, 'S-BLU-XXL', 10, 'XXL', 'Blue', 's_blue.jpg'),
+
+(19, 'S-WHT-S', 10, 'S', 'White', 's_white.jpg'),
+(19, 'S-WHT-M', 10, 'M', 'White', 's_white.jpg'),
+(19, 'S-WHT-L', 10, 'L', 'White', 's_white.jpg'),
+(19, 'S-WHT-XL', 10, 'XL', 'White', 's_white.jpg'),
+(19, 'S-WHT-XXL', 10, 'XXL', 'White', 's_white.jpg'),
+
+(20, 'S-RED-S', 10, 'S', 'Red', 's_red.jpg'),
+(20, 'S-RED-M', 10, 'M', 'Red', 's_red.jpg'),
+(20, 'S-RED-L', 10, 'L', 'Red', 's_red.jpg'),
+(20, 'S-RED-XL', 10, 'XL', 'Red', 's_red.jpg'),
+(20, 'S-RED-XXL', 10, 'XXL', 'Red', 's_red.jpg'),
+
+(21, 'S-GRN-S', 10, 'S', 'Green', 's_green.jpg'),
+(21, 'S-GRN-M', 10, 'M', 'Green', 's_green.jpg'),
+(21, 'S-GRN-L', 10, 'L', 'Green', 's_green.jpg'),
+(21, 'S-GRN-XL', 10, 'XL', 'Green', 's_green.jpg'),
+(21, 'S-GRN-XXL', 10, 'XXL', 'Green', 's_green.jpg'),
+
+(22, 'G-BLK', 10, 'One Size', 'Black', 'g_black.jpg'),
+(23, 'G-GRN', 10, 'One Size', 'Green', 'g_green.jpg'),
+(24, 'G-RED', 10, 'One Size', 'Red', 'g_red.jpg'); 
+ The above SQL script will create the necessary tables and insert some sample data into the tables. 
+ Step 4: Create a PHP file to display products 
+ Create a new PHP file named  index.php  in the root directory of your project and add the following code to it. 
+ <?php
+
 

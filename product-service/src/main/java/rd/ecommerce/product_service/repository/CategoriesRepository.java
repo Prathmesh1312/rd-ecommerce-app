@@ -8,5 +8,4 @@ import rd.ecommerce.product_service.model.*;
 public interface CategoriesRepository extends JpaRepository<Categories, Integer>{
 
     List<Categories> findByName(String name);
-    List<Categories>  findById(int id);
 }

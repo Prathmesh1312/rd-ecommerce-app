@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import rd.ecommerce.product_service.dto.ProductsDTO;
 import rd.ecommerce.product_service.model.Products;
+import rd.ecommerce.product_service.model.SKUs;
 import rd.ecommerce.product_service.repository.ProductsRepository;
+import rd.ecommerce.product_service.repository.SKUsRepository;
 
 @org.springframework.web.bind.annotation.RestController
 
@@ -22,6 +25,8 @@ import rd.ecommerce.product_service.repository.ProductsRepository;
 public class ProductsController {
 	@Autowired
 	ProductsRepository productRepo;
+	@Autowired
+	SKUsRepository skuRepo;
 	
 	@GetMapping("/p/welcome")
 	public String welcome() {
@@ -46,24 +51,29 @@ public class ProductsController {
 	            return new ResponseEntity<Object>(map,status);
 	    }
 
-	 @GetMapping("/p/get")
-	 public ResponseEntity<Object> getItems(){
-		 List<Products> items = productRepo.findAll();
-		 return generateResponse("Complete Data!", HttpStatus.OK, items);
-	 }
-
-	@GetMapping("/p/get/{name}")
-    public ResponseEntity<Object> getProductsByName(@PathVariable String name) {
-		List<Products> items = productRepo.findByName(name);
-		return generateResponse("Search Result Data!", HttpStatus.OK, items);
-    }
-
+	//SKU's for Product ID API
+	@GetMapping("/p/get/{id}")
+    public ResponseEntity<Object> getProductById(@PathVariable Long id) {
+	
+		List<Products> product = productRepo.findById(id);
+		return generateResponse("Product Data!", HttpStatus.OK, product);
+	}
+	//SKU's for Product ID API
+	@GetMapping("/p/sku/{id}")
+    public ResponseEntity<Object> getSKUsforProduct(@PathVariable Long id) {
+	
+		List<SKUs> skus = skuRepo.findByProductId(id);
+		return generateResponse("SKU Data!", HttpStatus.OK, skus);
+	}
+    
+	//Search Bar API
 	@GetMapping("/p/{query}")
     public ResponseEntity<Object> getProductsByQuery(@PathVariable String query) {
 		List<Products> items = productRepo.queryByNameContains(query);
 		return generateResponse("Search Result Data!", HttpStatus.OK, items);
     }
 
+	//Category Page API
 	@GetMapping("/c/{categoryName}")
     public List<Products> getProductByCategoryName(@PathVariable String categoryName) {
 		List<Products> items = productRepo.findByCategoriesName(categoryName);

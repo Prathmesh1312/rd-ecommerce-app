@@ -52,4 +52,11 @@ public class Products {
 		this.image = image;
 	}
 	
+	public Set<SKUs> getSkus() {
+		return skus;
+	}
+
+	public void setSkus(Set<SKUs> skus) {
+		this.skus = skus;
+	}
 }

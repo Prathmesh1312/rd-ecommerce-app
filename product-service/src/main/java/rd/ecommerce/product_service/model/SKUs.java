@@ -11,12 +11,12 @@ public class SKUs {
 	{S, M, L, XL, XXL;}
 
     public enum Color
-	{Red, Green, Blue, Black, White, Yellow, Purple, Orange, Brown, Grey;}
+	{Red, Green, Blue, Black, White, Yellow, Purple;}
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Products product;
@@ -26,14 +26,15 @@ public class SKUs {
 	@Enumerated(EnumType.STRING)
 	private Color color;
     private int quantity;
+    private String image;
     //private boolean isactive;   
 
     
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,6 +69,13 @@ public class SKUs {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
+    public String getImage() {
+        return this.image;
+    }       
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
 }

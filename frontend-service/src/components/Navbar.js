@@ -4,10 +4,10 @@ import Toolbar from "@mui/material/Toolbar";
 import logo from "../assets/logo.png";
 import Tabs from "@mui/material/Tabs";
 import { Button, Snackbar, Alert } from "@mui/material";
-import { styled } from "@mui/system";
+import { Container, styled } from "@mui/system";
 import NestedMenu from "./NestedMenu";
 import SearchBar from "./SearchBar";
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
@@ -70,9 +70,10 @@ const Navbar = () => {
             Logout
           </LoginButton>
         )}
+
         <LoginButton
           color="primary"
-          href="/login"
+          href="/"
           type="submit"
           variant="contained"
           sx={{ padding: "18px" }}
