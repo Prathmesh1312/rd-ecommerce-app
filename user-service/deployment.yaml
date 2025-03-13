@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      serviceAccountName: ecommerce-service-rd
+      containers:
+      - name: user-service
+        image: us.gcr.io/fair-portal-451506-u2/user-service:7
+        ports:
+        - containerPort: 8081
+      - name: cloud-sql-proxy
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        args:
+          - "--auto-iam-authn"
+          - "--port=3306"
+          - "fair-portal-451506-u2:us-central1:ecommerce-rd-app"
+        securityContext:
+          runAsNonRoot: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  selector:
+    app: user-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8081
+  type: LoadBalancer

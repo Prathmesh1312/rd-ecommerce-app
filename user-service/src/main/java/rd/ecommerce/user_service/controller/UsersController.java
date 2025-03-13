@@ -33,7 +33,7 @@ public class UsersController {
 	public ResponseEntity<Object> save(@RequestBody UsersDTO usersDTO) {
 
 		if(usersDTO.getEmail() == null || usersDTO.getEmail().isEmpty()) {
-			return generateResponse("Email is required!", HttpStatus.BAD_REQUEST, null);
+			return generateResponse("Email is required!", HttpStatus.OK, null);
 		}
 
 		Optional<Users> user = userrepository.findByEmail(usersDTO.getEmail());

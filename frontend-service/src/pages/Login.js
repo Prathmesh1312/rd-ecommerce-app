@@ -1,65 +1,55 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Container, Typography, TextField, Button, Box, Alert } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import SimpleAlert from '../components/alert';
-import config from '../config';
-import Navbar from '../components/Navbar';
+import React, { useState } from "react";
+import axios from "axios";
+import { Typography, TextField, Button, Box, Alert, Paper, IconButton, InputAdornment, Snackbar } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import config from "../config";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null); // State for error messages
-  const navigate = useNavigate(); // Initialize useNavigate
-  const [isUserLogedIn, setIsUserLogedIn] = React.useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // State for Snackbar
+  const navigate = useNavigate();
 
   async function login(event) {
     event.preventDefault();
-    try {
-      await axios.post(config.SERVER_BASE_URL+"users/login", {
-        email: email,
-        password: password,
-        }).then((res) => 
-        {
- 
-         if (res.data.message == "User not found!") 
-         {
-           alert("Email not exits");
-         } 
-         else if(res.data.message == "User Logged in!")
-         { 
-            <SimpleAlert />
-            setIsUserLogedIn(true);
-            <Navbar isUserLogedIn={isUserLogedIn} />
-            navigate('/');
-         } 
-          else 
-         { 
-            alert("Invalid password!");
-         }
-      }, fail => {
-       console.error(fail); // Error!
-});
-    }
+    setError(null);
 
-     catch (err) {
-      alert(err);
+    try {
+      const response = await axios.post(`${config.SERVER_BASE_URL}users/login`, {
+        email,
+        password,
+      });
+
+      const { message, token } = response.data;
+
+      if (message === "User not found!") {
+        setError("Email does not exist. Please sign up.");
+      } else if (message === "User Logged in!") {
+        localStorage.setItem("token", token || "true");
+        setSnackbarOpen(true); // Show success Snackbar
+        setTimeout(() => navigate("/"), 2000); // Redirect after delay
+      } else {
+        setError("Invalid password! Please try again.");
+      }
+    } catch (err) {
+      console.error("Login Error:", err);
+      setError("Something went wrong. Please try again.");
     }
-  
   }
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h5" component="h2" gutterBottom>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", bgcolor: "#f5f5f5", minHeight: "100vh" }}>
+      <Paper elevation={3} sx={{ padding: 4, borderRadius: 3, boxShadow: 3, margin: 20, width: "400px" }}>
+        <Typography variant="h5" component="h2" gutterBottom textAlign="center" color="primary">
           Login
         </Typography>
 
+        {error && <Alert severity="error">{error}</Alert>}
 
-        {error && <Alert severity="error">{error}</Alert>} {/* Display error message */}
-
-
-        <form  noValidate sx={{ width: '100%', marginTop: 1 }}>
+        <form onSubmit={login} style={{ width: "100%", marginTop: 1 }}>
           <TextField
             label="Email"
             variant="outlined"
@@ -75,19 +65,45 @@ const LoginPage = () => {
             margin="normal"
             required
             fullWidth
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
-          <Button type="submit" variant="contained" color="primary" onClick={login} fullWidth sx={{ marginTop: 2 }}>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ marginTop: 2 }}>
             Login
           </Button>
+          <Box sx={{ marginTop: 2, textAlign: "center" }}>
+            <Typography variant="body2">
+              Don't have an account? <a href="/signup">Sign Up</a>
+            </Typography>
+          </Box>
         </form>
-        <Box sx={{marginTop: 2}}>
-          <Typography variant="body2">Don't have an account? <a href="/signup">Sign Up</a></Typography>
-        </Box>
-      </Box>
-    </Container>
+      </Paper>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000} // Hide after 3 seconds
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          Login successful! Redirecting...
+        </Alert>
+      </Snackbar>
+    </Box>
   );
 };
 

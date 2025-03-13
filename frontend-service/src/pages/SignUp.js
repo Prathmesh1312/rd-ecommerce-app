@@ -1,96 +1,135 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Container, Typography, TextField, Button, Box, Alert, Radio, RadioGroup, FormLabel, FormControlLabel } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import config from '../config';
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import {
+  Button,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  Box,
+  Typography,
+  FormLabel,
+  Paper,
+  Snackbar,
+  Alert,
+} from "@mui/material";
+import config from "../config";
+import ValidatedTextField from "../components/ValidatedTextField.js";
+import {
+  emailValidator,
+  passwordValidator,
+  phoneValidator,
+} from "../components/validators.js";
+import { useNavigate } from "react-router-dom";
 
-const SignUpPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [gender, setGender] = useState('');
-  const [phonenumber, setPhonenumber] = useState('');
-  const [error, setError] = useState(null); // State for error messages
+function SignUp() {
   const navigate = useNavigate(); // Initialize useNavigate
+  const formValid = useRef({ email: false, password: false, phone: false });
+  const [gender, setGender] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // State for Snackbar
 
-  async function save(event) {
-    event.preventDefault();
-    try 
-    {
-      await axios.post(config.SERVER_BASE_URL+"users/register", {
-      email: email,
-      password: password,
-      gender: gender,
-      phonenumber : phonenumber
-      });
-      alert("User Registation Successful !");
-      window.location.reload(true);
-      navigate('/signup');
-
-    } 
-    catch (err) 
-    {
-      alert(err);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (Object.values(formValid.current).every((isValid) => isValid)) {
+      try {
+        await axios.post(config.SERVER_BASE_URL + "users/register", {
+          email: localStorage.Email,
+          password: localStorage.Password,
+          gender: gender,
+          phonenumber: localStorage.Phone,
+        });
+        setSnackbarOpen(true); // Show success Snackbar
+        setTimeout(() => navigate("/Login"), 2000);
+      } catch (err) {
+        alert(err);
+      }
+    } else {
+      alert("Form is invalid! Please check the fields...");
     }
   }
-
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h5" component="h2" gutterBottom>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+      bgcolor="#f5f5f5"
+    >
+      <Paper
+        elevation={3}
+        sx={{ padding: 4, width: 400, borderRadius: 3, boxShadow: 3 }}
+      >
+        <Typography
+          variant="h5"
+          component="h2"
+          gutterBottom
+          textAlign="center"
+          color="primary"
+        >
           Register
         </Typography>
-
-        {error && <Alert severity="error">{error}</Alert>} {/* Display error message */}
-
-        <form noValidate sx={{ width: '100%', marginTop: 1 }}>
-          <TextField
+        <Box component="form" onSubmit={handleSubmit} noValidate>
+          <ValidatedTextField
             label="Email"
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            validator={emailValidator}
+            onChange={(isValid) => (formValid.current.email = isValid)}
           />
-          <TextField
+          <ValidatedTextField
             label="Password"
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            validator={passwordValidator}
+            onChange={(isValid) => (formValid.current.password = isValid)}
           />
-           <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-           <RadioGroup
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group" onChange={(e) => setGender(e.target.value)}
-      >
-        <FormControlLabel value="Female" control={<Radio />} label="Female" />
-        <FormControlLabel value="Male" control={<Radio />} label="Male" />
-      </RadioGroup>
-           <TextField
-            label="Phone Number"
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            type="phonenumber"
-            value={phonenumber}
-            onChange={(e) => setPhonenumber(e.target.value)}
+          <ValidatedTextField
+            label="Phone"
+            validator={phoneValidator}
+            onChange={(isValid) => (formValid.current.phone = isValid)}
           />
-          <Button type="submit" variant="contained" color="primary" onClick={save} fullWidth sx={{ marginTop: 2 }}>
+          <FormLabel
+            id="demo-radio-buttons-group-label"
+            sx={{ marginTop: 2, color: "black" }}
+          >
+            Gender
+          </FormLabel>
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <FormControlLabel
+              value="Female"
+              control={<Radio />}
+              label="Female"
+            />
+            <FormControlLabel value="Male" control={<Radio />} label="Male" />
+          </RadioGroup>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{ marginTop: 2, borderRadius: 2 }}
+          >
             Register
           </Button>
-        </form>
-        <Box sx={{marginTop: 2}}>
-          <Typography variant="body2">Already have an account? <a href="/Login">Login</a></Typography>
-        </Box>
-      </Box>
-    </Container>
-  );
-};
 
-export default SignUpPage;
+          <Box sx={{ marginTop: 2, placeItems: "center" }}>
+            <Typography variant="body2">
+              Already have an account? <a href="/Login">Login</a>
+            </Typography>
+          </Box>
+        </Box>
+      </Paper>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000} // Hide after 3 seconds
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert severity="success" variant="filled" sx={{ width: "100%" }}>
+          User Registration Successful! Redirecting...
+        </Alert>
+      </Snackbar>
+    </Box>
+  );
+}
+
+export default SignUp;

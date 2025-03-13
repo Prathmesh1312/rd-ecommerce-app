@@ -11,22 +11,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import rd.ecommerce.product_service.dto.ProductsDTO;
 import rd.ecommerce.product_service.model.Products;
-import rd.ecommerce.product_service.model.ProductsDTO;
 import rd.ecommerce.product_service.repository.ProductsRepository;
 
 @org.springframework.web.bind.annotation.RestController
+
+@CrossOrigin
 public class ProductsController {
 	@Autowired
 	ProductsRepository productRepo;
 	
-	@GetMapping("/products/welcome")
+	@GetMapping("/p/welcome")
 	public String welcome() {
 		return "your Product Service rest endpoint works";
 	}
 	
-	@PostMapping("/products/add")
+	@PostMapping("/p/add")
 	public ResponseEntity<Object> save(@RequestBody ProductsDTO productDTO) {
 		Products product = new Products();
 		product.setName(productDTO.getName());
@@ -44,23 +46,27 @@ public class ProductsController {
 	            return new ResponseEntity<Object>(map,status);
 	    }
 
-	 @GetMapping("/products/get")
+	 @GetMapping("/p/get")
 	 public ResponseEntity<Object> getItems(){
 		 List<Products> items = productRepo.findAll();
 		 return generateResponse("Complete Data!", HttpStatus.OK, items);
 	 }
 
-	@GetMapping("/products/get/{name}")
+	@GetMapping("/p/get/{name}")
     public ResponseEntity<Object> getProductsByName(@PathVariable String name) {
 		List<Products> items = productRepo.findByName(name);
 		return generateResponse("Search Result Data!", HttpStatus.OK, items);
     }
 
-	@GetMapping("/products/search/{query}")
+	@GetMapping("/p/{query}")
     public ResponseEntity<Object> getProductsByQuery(@PathVariable String query) {
 		List<Products> items = productRepo.queryByNameContains(query);
 		return generateResponse("Search Result Data!", HttpStatus.OK, items);
     }
 
-
+	@GetMapping("/c/{categoryName}")
+    public List<Products> getProductByCategoryName(@PathVariable String categoryName) {
+		List<Products> items = productRepo.findByCategoriesName(categoryName);
+		return items;
+    }
 }

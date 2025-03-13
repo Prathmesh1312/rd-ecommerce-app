@@ -1,9 +1,11 @@
-package rd.ecommerce.product_service.model;
+package rd.ecommerce.product_service.dto;
 
 public class ProductsDTO {
 	
 	private String name;
 	private double price;
+	private String image;
+
 	public String getName() {
 		return name;
 	}
@@ -17,7 +19,14 @@ public class ProductsDTO {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	
+
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 }

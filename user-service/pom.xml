@@ -12,7 +12,7 @@
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-service</name>
-	<description>Product Microservice for E-commerce App</description>
+	<description>User Microservice for E-commerce App</description>
 	<url/>
 	<licenses>
 		<license/>
