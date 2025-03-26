@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fair-portal-451506-u2",
+  "private_key_id": "9334805932094068977b517f26ccffa0cd0e9b8b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC8VH7Q22v1O+VF\nO2DOorJu7y+mxLz/nAutI53bZm7u/ZR04RmVFi2RyXIimVu0BVwBTqbeFJnZ26YT\nxlLvdCnccsl2yWWCW3NoktMStUsZhXcKR1fEdPDnyRVyZMYANu2cmDclvegnGC9b\nllVg9oFgLVhcRooOjSWU2K4ChCuMgIxj0T/xFHNbnWkkWq1xhDOkx9e9HGVNwuM5\nIPLesohvc5UYka3Vpg7LFoCxZiPMeOcw+m5EJyAP+ExgaoFS9/KakO823Xg9DEIH\noFWbqWVdJZ9scC5fbwTE2z/b1curwz4PDwRcxhKdT+K572eslYMHMM978sFxls/f\nXgeErRrfAgMBAAECggEAEOg3AFIKhZgMc6QqgzJ4+VuQuBSGcR4VsEP3yngOMndi\nagHBVbCJg8KFdBS3dlha06U3ds17qGK/LJxL2sJfdbJ6Yqce7U5/dF5mA5Jx/QcN\n0kboWrMy42QagEwKuH814q6JmOJNIqFZswuye4N1xugbPCF7CGZkftHbAU/TRwgl\n3MZDKAaFTpLvXUJazjUCpW0HIUGn2roFhZn7zkXoTohMND/3+L0pz4/zgjFZLStE\njsH/uT2uNf+T/CJgTgHlz24YJReKDCzSSW/wNEwIpgfpqz2GFYXhhiTeg40yUfZu\ndseHh5GICnxvhaIg8T1WCuYTVEfnhYuy4h0mqH//4QKBgQDlACLV173kcH7bOucJ\naNWiJfT5w+xxkUkq3Yc1Qaa7vxDOvwk5dP5xKoW7e2YJzEQNemybS0CEn2pf02Lw\nzlDyFbmepe+uh4eCHum29Sw+3i86VttNmI0KMBdkLTkH4Bdl1QHif0WYq+E7q5Y5\n2726zikeMxhzw1OJ9STyqBEvvwKBgQDSiNAd/BzIQzKoyyh+WaozqmSVsDpTI+3z\nSe9EP6k+FSdqMLYyg4uMc7y8VA0jkpTkanMskuRpdXr5ucPzRcqJgCrwygebHuMr\n2Y/B/kNTcMZqKyIUnmsll1Y+6d2q9yDZrNtR5c9WESzGmVFM0s+ArfvehWOMHzWG\nzHs6mfbc4QKBgQCcD+6tm1y/LOdXEppXMEm/OmzsNliRwPiDLPuzEK3Hb1vN+iUY\nMiIhD2CaN2t/q+SI5vDTGIK8n0PIUHAyOfiyMpoQg3eHkreHtveCBy4DHjpDYOQN\nyrP7yHB4hdVDB7YKYRLqv9+3PxO9LZ+wiI+RmmQtP5cfdXMeJqHqeR1VUwKBgQDA\nkTMKuhb5db1YdrpLF2h+aVQnNlGiyjJTXUTkf/YlOuQaVQPRoFB730C6YYbDCsf1\nRQijtJgHfdVFpYx9b1CaBAlCxQe/8riG2zCKmC6sm3JgmaNKiLwoXgwc73w5bGE3\nuMvCVRkX+A2keYfLZOc3I+xE1G0BNWqYKWBtcXZDAQKBgQClTkixANrLOHRTkuCg\nzgRmh/Byi3sEyjG2NEa54FrPcdVlDJFIWs76tqeUiirOCOmSRm5cNyZ7e4iprcmk\nL5JX2SH05P+6WKL4ALoxP2hH/VEUMkr1xFohdTFTPyHWvO9CEoIYIOFRv0zows0K\nuZOdGx1ynMQX747t1bCY0eQ2Hg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ecommerce-service-rd@fair-portal-451506-u2.iam.gserviceaccount.com",
+  "client_id": "103920260173027523406",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ecommerce-service-rd%40fair-portal-451506-u2.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
