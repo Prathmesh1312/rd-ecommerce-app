@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+spec:
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      serviceAccountName: ecommerce-service-rd
+      containers:
+        - name: product-service
+          image: us.gcr.io/fair-portal-451506-u2/product-service:2
+          ports:
+          - containerPort: 8082

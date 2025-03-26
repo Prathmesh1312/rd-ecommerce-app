@@ -3,8 +3,6 @@ package rd.ecommerce.product_service.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +31,7 @@ public class ProductsController {
 		return "your Product Service rest endpoint works";
 	}
 	
+	//Adding The Product
 	@PostMapping("/p/add")
 	public ResponseEntity<Object> save(@RequestBody ProductsDTO productDTO) {
 		Products product = new Products();
@@ -42,6 +41,7 @@ public class ProductsController {
 		return generateResponse("Items saved successfully!", HttpStatus.OK, prod);
 	}
 
+	//Response for the API's
 	 public static ResponseEntity<Object> generateResponse(String message, HttpStatus status, Object responseObj) {
 	        Map<String, Object> map = new HashMap<String, Object>();
 	            map.put("message", message);
