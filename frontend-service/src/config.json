@@ -1,5 +1,5 @@
 {
-    "SERVER_USER_URL" : "http://user-service/", 
+    "SERVER_USER_URL" : "http://user-service:8081/", 
     "SERVER_PRODUCT_URL" : "http://34.60.66.25/",
     "SERVER_IMAGE_URL" : "https://storage.googleapis.com/rd-ecommerce-app/" }  
 
