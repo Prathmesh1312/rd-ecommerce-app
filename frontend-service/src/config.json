@@ -1,5 +1,5 @@
 {
-    "SERVER_USER_URL" : "http://user-service.default.svc.cluster.local:8081/", 
+    "SERVER_USER_URL" : "http://34.72.119.192:8081/", 
     "SERVER_PRODUCT_URL" : "http://product-service:8082/",
     "SERVER_IMAGE_URL" : "https://storage.googleapis.com/rd-ecommerce-app/" }  
 
