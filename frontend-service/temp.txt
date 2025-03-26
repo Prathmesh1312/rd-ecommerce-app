@@ -1,5 +1,0 @@
-// {isLoggedIn ? (
-//     <LogoutButton onClick={this.handleLogoutClick} />
-//   ) : (
-//     <LoginButton onClick={this.handleLoginClick} />
-//   )}

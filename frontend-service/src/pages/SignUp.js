@@ -31,7 +31,7 @@ function SignUp() {
     e.preventDefault();
     if (Object.values(formValid.current).every((isValid) => isValid)) {
       try {
-        await axios.post(config.SERVER_BASE_URL + "users/register", {
+        await axios.post(config.SERVER_USER_URL + "users/register", {
           email: localStorage.Email,
           password: localStorage.Password,
           gender: gender,

@@ -65,7 +65,6 @@ const NewProducts = () => {
         .get(config.SERVER_PRODUCT_URL + `c/New Arrivals`)
         .then((response) => {
           setProducts(response.data);
-          console.log(response.data);
         })
         .catch((error) => {
           console.error("Error fetching products:", error);
