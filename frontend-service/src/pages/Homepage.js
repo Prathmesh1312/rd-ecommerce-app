@@ -7,6 +7,7 @@ import NewProducts from '../components/NewProducts.js';
 import Testimonials from '../components/Testimonials.js';
 import Footer from '../components/Footer.js';
 import Navbar from '../components/Navbar.js';
+import SimpleAlert from '../components/alert.js';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     <div className="App">
       <Navbar />
       <HeroBanner />
+      <SimpleAlert />   
       <NewProducts />
       <Testimonials />
       <Footer />

@@ -4,8 +4,22 @@ import CheckIcon from '@mui/icons-material/Check';
 
 export default function SimpleAlert() {
   return (
-    <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-      Here is a gentle confirmation that your action was successful. 46e7c174-a3fb-4e65-8bce-26b93489aaa5 
-    </Alert>
+    <Alert
+    icon={<CheckIcon fontSize="inherit" />}
+    severity="success"
+    sx={{
+      '& .MuiAlert-message': {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize  : '3.5em',
+        width: '100%', // Ensure it takes up the full width for proper centering
+        display: 'block' // Ensure it's treated as a block element
+      },
+      justifyContent: 'center', // Center the alert content horizontally
+      display: 'flex', // Use flexbox for centering
+    }}
+  >
+    Test Alert
+  </Alert>
   );
 }
