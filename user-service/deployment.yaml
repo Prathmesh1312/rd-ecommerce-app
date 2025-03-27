@@ -14,6 +14,6 @@ spec:
       serviceAccountName: ecommerce-service-rd
       containers:
         - name: user-service
-          image: us.gcr.io/fair-portal-451506-u2/user-service:11
+          image: us.gcr.io/fair-portal-451506-u2/user-service:12
           ports:
           - containerPort: 8081
