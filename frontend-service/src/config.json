@@ -1,6 +1,6 @@
 {
     "SERVER_USER_URL" : "http://34.70.201.250/", 
-    "SERVER_PRODUCT_URL" : "http://34.60.66.25/",
+    "SERVER_PRODUCT_URL" : "http://product-service",
     "SERVER_IMAGE_URL" : "https://storage.googleapis.com/rd-ecommerce-app/" }  
 
 
