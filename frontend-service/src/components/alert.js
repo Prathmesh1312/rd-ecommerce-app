@@ -19,7 +19,7 @@ export default function SimpleAlert() {
       display: 'flex', // Use flexbox for centering
     }}
   >
-    Test Alert
+    .
   </Alert>
   );
 }
